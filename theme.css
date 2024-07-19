@@ -1,0 +1,593 @@
+:root {
+
+    /* ### Images ### */
+    /* Background */
+    --border: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVRTuIOGSoTnbxC8dahSJUCLVCqw4ml34ITRqSFBdHwbXg4Mdi1cHFWVcHV0EQ/ABxdnBSdJES/5cUWsR4cNyPd/ced+8AoV5mmtURBzTdNtPJhJjNrYihV4TQjzCm0Cczy5iVpBR8x9c9Any9i/Es/3N/jh41bzEgIBLHmWHaxOvE05u2wXmfOMJKskp8Tjxm0gWJH7muePzGueiywDMjZiY9RxwhFottrLQxK5ka8SRxVNV0yheyHquctzhr5Spr3pO/MJzXl5e4TnMYSSxgERJEKKhiA2XYiNGqk2IhTfsJH/+Q65fIpZBrA4wc86hAg+z6wf/gd7dWYWLcSwongM4Xx/kYAUK7QKPmON/HjtM4AYLPwJXe8lfqwMwn6bWWFj0CereBi+uWpuwBlzvA4JMhm7IrBWkKhQLwfkbflAMGboHuVa+35j5OH4AMdZW6AQ4OgdEiZa/5vLurvbd/zzT7+wGmq3K7AIfDPgAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+gHEgw1G1+9gnUAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAACOElEQVR42u2dsUrDUBSGz6kuUkUQQXFwKSiig+Io1TdwEXwaV/Fh3ARfoOKm6KAUFwcnBRFExUmPg4O5N2nSahqTm+/f2tyW9uOe//5pc09UMrS7tmqCRETEROTw4lLTxjTAlK8AmrNGswaoaNaAGtW8DQ50r91yXrU085H6BstLk6nH52fHKs3w7v49wtNkYfyHj4nJ/smtUvJ4aCAemoc9WsVCl+oAxy0+WKM5U0Vlu+V6ZvfhTVxPbQY9w/w14br73PO4mcnB8Sslj4eGlEPrFjktxfRVcwDqe6bvqaEp+v1URXa25ih5PLSuHloLY7UhA/Vzl+OhKrLZXg+KZ6dz7pyUpOVQSh4PrZhUc/DQ34S1YoNldRYlFZGp6QnnuZWNxVLxvDq9cR4/Pb5Q8nhoXWUG0PIF+5LL8XQT6RydUfJ4KEARQAEKUARQgAIUARSgAEUABShAAYoAClCAIoACNCTl/6/nZ4n30RRwWQ4zFKAABSgCKEABigBaeMyVAC9n9PdqasHX/OcPtPG/mxbSm84oJY+HAhQBFKAARQAth/6UQ03ieyf9vZXMUATQYEo+2Qaq22HYigDq99zwP0G0R0cdFOXxPXlGKHk8NFQPTfJHDaxvU/TnVB0G0Kz+oX4fo6r1XI72WE5aMwbtn0rJ46El91BLSWK+Z/bjKVbhG11YxofXPrJrbEy8j32TadfDU+ljj4cGkEMtw0frriiPJMvNXGe4n5K7AHE/JTw08HN56n0wfQFCRpty1upUBQAAAABJRU5ErkJggg==);
+    /* Checkbox */
+    --checked: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAwXpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjabVDbDcMgDPz3FB0BPwJmHNKkUjfo+DXYiULTkzg/ddiG/fN+waODUECWornmnAxSpVIzR5OjDcYkgz14Rg3nPJwFshSbZQ81R/+Rx1PATTNvuQhpCOE6F6qEvv4IkRvuE3V/C6EaQkxewBBovlbKVct1hXVPM9QfdBKdx77Fxa63LfYPE+2MnIyZsw/A/QlwM6cYI6s1Go8MDT5WtYP8u9MB+AJsA1l2s9JLXQAAAYRpQ0NQSUNDIHByb2ZpbGUAAHicfZE9SMNAHMVfW6UiFUEziDhkqIJglyriqFUoQoVQK7TqYHLpFzRpSFJcHAXXgoMfi1UHF2ddHVwFQfADxNnBSdFFSvxfUmgR48FxP97de9y9A4KNCtOsrllA020znUyI2dyqGH5FGAMQMI64zCxjTpJS8B1f9wjw9S7Gs/zP/Tn61LzFgIBIPMsM0ybeIJ7etA3O+8QCK8kq8TnxhEkXJH7kuuLxG+eiy0GeKZiZ9DyxQCwWO1jpYFYyNeIp4qiq6ZQfzHqsct7irFVqrHVP/sJIXl9Z5jrNESSxiCVIEKGghjIqsBGjVSfFQpr2Ez7+YdcvkUshVxmMHAuoQoPs+sH/4He3VmEy7iVFEkD3i+N8jALhXaBZd5zvY8dpngChZ+BKb/urDWDmk/R6W4seAf3bwMV1W1P2gMsdYOjJkE3ZlUI0g4UC8H5G35QDBm+B3jWvt9Y+Th+ADHWVugEODoGxImWv+7y7p7O3f8+0+vsB8Vly2e4aEdsAAA14aVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA0LjQuMC1FeGl2MiI+CiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiCiAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICB4bWxuczpHSU1QPSJodHRwOi8vd3d3LmdpbXAub3JnL3htcC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgeG1wTU06RG9jdW1lbnRJRD0iZ2ltcDpkb2NpZDpnaW1wOjQzYmE5M2E5LTBhMjgtNDg5Mi1iYzM1LTg2MDE5NDk5MzA4ZCIKICAgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowYzk5NDA1MS0yYTFjLTQ0N2YtOTZlOS1kNDZiYTNlZjZhN2IiCiAgIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxYzA0NWZlYS0wMDExLTQ5NTQtYWRlZS02YmM3Nzk2NjJlNzYiCiAgIGRjOkZvcm1hdD0iaW1hZ2UvcG5nIgogICBHSU1QOkFQST0iMi4wIgogICBHSU1QOlBsYXRmb3JtPSJMaW51eCIKICAgR0lNUDpUaW1lU3RhbXA9IjE3MjEzMzY1MjY2NjA2ODciCiAgIEdJTVA6VmVyc2lvbj0iMi4xMC4zNiIKICAgdGlmZjpPcmllbnRhdGlvbj0iMSIKICAgeG1wOkNyZWF0b3JUb29sPSJHSU1QIDIuMTAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjQ6MDc6MThUMTg6MDI6MDUtMDM6MDAiCiAgIHhtcDpNb2RpZnlEYXRlPSIyMDI0OjA3OjE4VDE4OjAyOjA1LTAzOjAwIj4KICAgPHhtcE1NOkhpc3Rvcnk+CiAgICA8cmRmOlNlcT4KICAgICA8cmRmOmxpCiAgICAgIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiCiAgICAgIHN0RXZ0OmNoYW5nZWQ9Ii8iCiAgICAgIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NGJhNmY5YjAtMzNhYS00NTI3LWFmZDEtYWI3MjA2OWFhMTIzIgogICAgICBzdEV2dDpzb2Z0d2FyZUFnZW50PSJHaW1wIDIuMTAgKExpbnV4KSIKICAgICAgc3RFdnQ6d2hlbj0iMjAyNC0wNy0xOFQxODowMjowNi0wMzowMCIvPgogICAgPC9yZGY6U2VxPgogICA8L3htcE1NOkhpc3Rvcnk+CiAgPC9yZGY6RGVzY3JpcHRpb24+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz4m3yloAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH6AcSFQIGv0vWZwAAALhJREFUSMdjjNbW+s9AR8DEQGdAdwtZkDmnp36Ds5O0peDsCtFjcYQM6nhttQjGnnf1GYqcaTbXCArSgY1DZIAcD8jxUyF6jBFJ/D+ueBsNUgYGBgaGWw4P4Mlf7YDCIhzBSzAYkc1hYGBgMNXWWjRyU+lipGBhIBS8+IJxNJWSVBgTUo+vsB/+QcqI3MTQPSDAQEpqRE69yAC5LmVgYGC47PBhpKZSIjM1yYWDKQPXSE2lo40oagAAJERQXo25Wb0AAAAASUVORK5CYII=);
+    --unchecked: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAwnpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjabVDbDcMgDPxnio6AHwEzDmlTqRt0/B6xE4W2J/n81GGctvfrmW4DTJp0qVZaKRnQpo07AsuOvjNl3dmTe/RorqezwSgJvHhqJeaPOp0C7jqi5SJkIUTr3Gga+vYlxO5kbDTiRwi1EBL2BoVA92/l0qxev7BueYa5pUFq89o/ecX1HgveEeZNSDJYpPgCMkyTdAQVTGIYBO8VBYtQiOEg/+50IH0AbD1Zd2qqGD8AAAGEaUNDUElDQyBwcm9maWxlAAB4nH2RPUjDQBzFX1ulIhVBM4g4ZKiCYJcq4qhVKEKFUCu06mBy6Rc0aUhSXBwF14KDH4tVBxdnXR1cBUHwA8TZwUnRRUr8X1JoEePBcT/e3XvcvQOCjQrTrK5ZQNNtM51MiNncqhh+RRgDEDCOuMwsY06SUvAdX/cI8PUuxrP8z/05+tS8xYCASDzLDNMm3iCe3rQNzvvEAivJKvE58YRJFyR+5Lri8RvnostBnimYmfQ8sUAsFjtY6WBWMjXiKeKoqumUH8x6rHLe4qxVaqx1T/7CSF5fWeY6zREksYglSBChoIYyKrARo1UnxUKa9hM+/mHXL5FLIVcZjBwLqEKD7PrB/+B3t1ZhMu4lRRJA94vjfIwC4V2gWXec72PHaZ4AoWfgSm/7qw1g5pP0eluLHgH928DFdVtT9oDLHWDoyZBN2ZVCNIOFAvB+Rt+UAwZvgd41r7fWPk4fgAx1lboBDg6BsSJlr/u8u6ezt3/PtPr7AfFZctnuGhHbAAANeGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNC40LjAtRXhpdjIiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iCiAgICB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIgogICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgeG1sbnM6R0lNUD0iaHR0cDovL3d3dy5naW1wLm9yZy94bXAvIgogICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgIHhtcE1NOkRvY3VtZW50SUQ9ImdpbXA6ZG9jaWQ6Z2ltcDpjM2ViMDE4NS1lMWMyLTQ2MDAtOWRlMi04N2M0MDdiNjJkNWYiCiAgIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OWE1YWI3ODAtN2MyMy00MWQwLTkwNGQtOTdlYzM5Y2IxYWQ5IgogICB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6MGMwZjBlYjgtODE0NC00NzIyLWEwYmYtMDhiMjI0M2ExMDYyIgogICBkYzpGb3JtYXQ9ImltYWdlL3BuZyIKICAgR0lNUDpBUEk9IjIuMCIKICAgR0lNUDpQbGF0Zm9ybT0iTGludXgiCiAgIEdJTVA6VGltZVN0YW1wPSIxNzIxMzM2NjcyMTQ1NjI2IgogICBHSU1QOlZlcnNpb249IjIuMTAuMzYiCiAgIHRpZmY6T3JpZW50YXRpb249IjEiCiAgIHhtcDpDcmVhdG9yVG9vbD0iR0lNUCAyLjEwIgogICB4bXA6TWV0YWRhdGFEYXRlPSIyMDI0OjA3OjE4VDE4OjA0OjMxLTAzOjAwIgogICB4bXA6TW9kaWZ5RGF0ZT0iMjAyNDowNzoxOFQxODowNDozMS0wMzowMCI+CiAgIDx4bXBNTTpIaXN0b3J5PgogICAgPHJkZjpTZXE+CiAgICAgPHJkZjpsaQogICAgICBzdEV2dDphY3Rpb249InNhdmVkIgogICAgICBzdEV2dDpjaGFuZ2VkPSIvIgogICAgICBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmIxOWQzOTI1LTViNWItNGVjZC04OGJmLTZkNDNiMjE3M2U2OCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iR2ltcCAyLjEwIChMaW51eCkiCiAgICAgIHN0RXZ0OndoZW49IjIwMjQtMDctMThUMTg6MDQ6MzItMDM6MDAiLz4KICAgIDwvcmRmOlNlcT4KICAgPC94bXBNTTpIaXN0b3J5PgogIDwvcmRmOkRlc2NyaXB0aW9uPgogPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSJ3Ij8+yN66ggAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+gHEhUEIDsc9BwAAABKSURBVEjHY4zW1vrPQEfAxEBnQHcLWZA5S69ei6OFJdHaWotGaJAyMDAspqLZsSMzlY5aOGrhqIWjFo5aOGrhqIUMDIyjDWFqAwCSmQiZ/Zk2bwAAAABJRU5ErkJggg==);
+    /* Nav Icons */
+    --sprinkler: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAABGdBTUEAALGPC/xhBQAAACRQTFRFAAAA0dHRra2t7y/feXl5vADrSEhJSEdJfgB3WQBcQABFIAAuymvmNAAAAAF0Uk5TAEDm2GYAAADXSURBVHjardOxCgIxDADQTi5Ot/gBRfyBIrgKRdylcDrpIXF1u105iDqKYHB0kbo4qvk58e5ElA5ebabSNyRNUiGCRw0AZmmapnMH5OIEAHCA7kayqWH8NwhhT4hr6yj4ZwCAEo7KjOz70gMSafMwMWJmirNsecEkwsyotsEV0R7NQJkYo4YXJJKIcKlwIXUfVQeJqExeFaaamWn3yjEkZtY9L8ibyDcqXk4H/uhuFSijzrRVzwSXr4n7QLFwQaD4BgFACL5be2bHUnvAFXETBkSdHbVWgAdsVg5w2MlXHwAAAABJRU5ErkJggg==);
+    --crop: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAABACAYAAABcIPRGAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFXSURBVHja7Jc9asMwGIalUkggoC03MGQM5BY9QHOCQqfmBB07dHamQk7gHKC3CHhrqU9Qb4FCM6mzvsSf0KBUhufdgmTHD7zv92O992bMujEjFwAAAAAAAAAAAAAAAPyfbocOrLVZ/3j+VKmLSL/tgg8Y2luwEAC5MpDb848PXXD+tquwEACjzkCsrkvPvxzC82eZCXP2PouFAMggOzRjyFko1eOxup56/7v+IgMAFJWBaF1fGfV8fgg9f+pmwe/je8s+AEBRGZByd8vgwc1rq9b1fhVmxjVL1fNSZACAa+8D0uNS0rO1Ce8f161a9/uI57EQAKXtxNLTTnh+Uv2os1DdzJL6yqXWhIUAuGYGZJ13kTovZxs5/7uI52Pvw0IAlL4PyD4gJXdeeZ+dGIDyM7C41zMxbdI8/rtO+VDvP/ZYCICS+sC59IzE9bnXM0AfACCL/gQYAK/WjA0PD1TWAAAAAElFTkSuQmCC);
+}
+
+/* ==================================== */
+/* ### Note ### */
+.view-content {
+    margin: 28px;
+    width: auto;
+
+    color: black;
+    background-color: #f8ca8d !important;
+    border-image: var(--border) 28 / 28px / 28px !important;
+}
+/* ==================================== */
+
+/* Checkbox Checked */
+label.task-list-label:has(input[type="checkbox"]:checked) {
+    content: var(--checked);
+}
+/* Checkbox Unchecked */
+label.task-list-label:has(input[type="checkbox"]) {
+    content: var(--unchecked);
+}
+
+/* Nav Header */
+.view-header-nav-buttons button:nth-of-type(1) {
+    background-color: red;
+}
+
+
+/* ==================================== */
+/* ### Navigation files and folders ### */
+
+.nav-files-container {
+    margin: 28px;
+    font-size: 25px !important;
+
+    color: black;
+    background-color: #f8ca8d !important;
+    border-image: var(--border) 28 / 28px / 28px !important;
+}
+/* Selected file name and file hover in file list */
+div.nav-files-container div.is-active {
+    color: red !important;
+}
+div.tree-item-self.is-clickable:hover {
+    color: black !important;
+}
+
+/* Folders */
+.tree-item-inner.nav-folder-title-content::before {
+    background-image: var(--sprinkler);
+    background-repeat: no-repeat;
+    background-size: 1.3em;
+
+    display: inline-block;
+    width: 1.5em;
+    height: 1.3em;
+    margin-right: 0.2em;
+
+    content: "";
+}
+/* Files */
+.tree-item-inner.nav-file-title-content::before {
+    background-image: var(--crop);
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+
+    display: inline-block;
+    width: 1.2em;
+    height: 1.5em;
+    margin-right: 0.2em;
+
+    content: "";
+}
+
+
+
+/* ==================================== */
+
+/*Fonts*/
+:root {
+    /*
+    If the font isn't installed in the system,
+    it will go down the list until it finds on that is.
+    */
+
+    --default-font: "Inter", sans-serif; /*Note and Settings Text*/
+    --font-monospace: "Source Code Pro", monospace; /*Code block text*/
+
+    /*
+    var(--variableName); is a variable,
+    so you can use what you set over and over without having
+    to rewrite it multiple times.
+    */
+}
+
+/*Dark Theme Variables*/
+.theme-dark {
+    --background-modifier-cover: rgba(0, 0, 0, 0.8); /*Obsidian Title Bar Bg*/
+    --background-primary: #202020; /*Note background*/
+    --background-primary-alt: #1a1a1a; /*Note Title background active*/
+    --background-secondary: #161616; /*Sidebar background*/
+    --background-secondary-alt: #000000; /*Sidebar Title background*/
+
+    --background-modifier-border: #333; /*Border outline of quotes, tables, line breaks*/
+
+    --text-normal: #dcddde; /*Text body of note*/
+    --text-muted: ; /*Text darker for sidebar, toggles, inactive, tags, etc*/
+    --text-accent: #7f6df2; /*Links*/
+    --text-accent-hover: #8875ff; /*Links hover*/
+    --text-faint: #666; /*Link brackets color & Gutter Numbers*/
+
+    --text-highlight-bg: rgba(255, 255, 0, 0.4); /*Search Matches*/
+    --text-highlight-bg-active: rgba(255, 128, 0, 0.4); /*Active Search Match (Preview Mode)*/
+    --text-selection: rgba(23, 48, 77, 0.99); /*Text Selections*/
+
+    --interactive-normal: #2a2a2a; /*Button Color*/
+    --interactive-hover: #303030; /*Button Hovered Color*/
+    --interactive-accent: #483699; /*Workspace Note Title Underline*/
+    --interactive-accent-hover: #4d3ca6; /*Menu Button Hover*/
+
+    --scrollbar-bg: rgba(255, 255, 255, 0.05); /*Scrollbar Gutter Background*/
+    --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1); /*Scrollbar Color*/
+    --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2); /*Scrollbar Dragged Color*/
+}
+
+.theme-light {
+    --background-primary: #ffffff; /*Note background*/
+    --background-primary-alt: #f5f6f8; /*Note Title background active*/
+    --background-secondary: #f2f3f5; /*Sidebar background*/
+    --background-secondary-alt: #e3e5e8; /*Sidebar Title background*/
+
+    --background-modifier-border: #ddd; /*Border outline of quotes, tables, line breaks*/
+
+    --text-normal: #2e3338; /*Text body of note*/
+    --text-muted: #888888; /*Text darker for sidebar, toggles, inactive, tags, etc*/
+    --text-accent: #705dcf; /*Links*/
+    --text-accent-hover: #7a6ae6; /*Links hover*/
+    --text-faint: #999999; /*Link brackets color*/
+
+    --text-highlight-bg: rgba(255, 255, 0, 0.4); /*Search Matches*/
+    --text-highlight-bg-active:rgba(255, 128, 0, 0.4); /*Active Search Match (Preview Mode)*/
+    --text-selection: rgba(23, 48, 77, 0.99); /*Text Selections*/
+
+    --interactive-normal: #f2f3f5; /*Button background Color*/
+    --interactive-hover:#e9e9e9; /*Button Hovered Color*/
+    --interactive-accent: #7b6cd9; /*Workspace Note Title Underline*/
+    --interactive-accent-hover: #8273e6; /*Menu Button Hover*/
+
+    --scrollbar-bg: rgba(0, 0, 0, 0.05); /*Scrollbar Gutter Background*/
+    --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1); /*Scrollbar Color*/
+    --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2); /*Scrollbar Dragged Color*/
+}
+
+/*Box Sizing Reset - this makes it easier to set any ::before and ::after pseudo-elements' dimensions,
+since it includes any border and padding into the height and width values you set.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}*/
+
+/*----Startup Progress Bar Screen----*/
+/*Startup Progress Bar Window*/
+.progress-bar {}
+
+/*Startup Text*/
+.progress-bar .progress-bar-message {}
+
+/*Startup Progress Bar Background*/
+.progress-bar-indicator .progress-bar-line {}
+
+/*Startup Progress Bar Moving Line*/
+.progress-bar-indicator .progress-bar-subline {}
+
+
+/*----Settings----*/
+/*All Popup Windows: Settings*/
+.modal {}
+
+/*Command Palette & Quick Switcher*/
+.prompt {}
+
+/*The notifications in the top right*/
+.notice {}
+
+/*Context Menu (Right CLick sth)*/
+.menu {}
+
+/*Setting Dropdown*/
+.dropdown {}
+
+/*Community Themes Browser*/
+.community-theme {}
+
+/*Community Plugins Browser*/
+.community-plugin {}
+
+
+/*--Extras--*/
+
+/*Tooltip Popup*/
+.tooltip {}
+
+
+
+/*----Workspace----*/
+/* ribbons, the thin vertical bars to the far left/right */
+.workspace-ribbon {}
+
+/*Side Panels*/
+.workspace-tabs {}
+
+/*Side Panel: Icons*/
+.workspace-tab-header-inner-icon {}
+
+
+
+
+/*--File Explorer--*/
+
+/*Nav Top: Create Note, Sort, Create Folder*/
+.nav-header {}
+
+/*Folder*/
+.nav-folder {}
+.nav-folder-title {}
+
+/*Files*/
+.nav-file {}
+.nav-file-title {}
+/* (also applies to many plugins displaying file lists in the side bar) */
+
+
+/*Status Bar*/
+.status-bar {}
+
+/*--Title Bar--*/
+
+/*Title Bar*/
+.titlebar {}
+
+/*Navigation Button - Back */
+.mod-back {}
+
+/*Navigation Button - Forward*/
+.mod-forward {}
+
+/*Window Control- Minimize*/
+.mod-minimize {}
+
+/*Window Control- Minimize*/
+.mod-maximize {}
+
+/*Window Control- Close*/
+.mod-close {}
+
+
+
+/*Buttons*/
+/*Default Buttons*/
+button {}
+/*Settings Buttons*/
+button.mod-cta {}
+/*Warning Buttons*/
+button.mod-warning{}
+
+
+
+/*--Workspace: Notes--*/
+/*Note Title Bar*/
+.workspace-leaf .view-header {}
+
+/*Inactive Note Titlebar*/
+/*Note Title Bar: Text*/
+.view-header-title {}
+
+/*Note Title Bar: Note Icon*/
+.view-header-icon {}
+
+/*Note Title Bar: Settings Icons*/
+.view-action {}
+
+/*Active Note Titlebar*/
+/*Note Title Bar: Text*/
+.workspace-leaf.mod-active .view-header-title {}
+
+/*Note Title Bar: Note Icon*/
+.workspace-leaf.mod-active .view-header-icon {}
+
+/*Note Title Bar: Settings Icons*/
+.workspace-leaf.mod-active .view-action {}
+
+
+
+
+
+
+
+/*----Notes----*/
+.cm-s-obsidian:not(.is-live-preview) {} /*Source Mode*/
+.markdown-source-view {} /*Source Mode*/
+
+.cm-s-obsidian.is-live-preview {} /*Live Preview Mode*/
+
+.markdown-preview-view {} /*Reading Mode*/
+
+/*--Emphasis--*/
+
+/*Bold*/
+strong {} /*Reading View*/
+.cm-s-obsidian .cm-strong {} /*Editing View*/
+
+/*Italic/Emphasis*/
+em {} /*Reading View*/
+.cm-em {} /*Editing View*/
+
+/*Highlight*/
+.markdown-preview-view mark {} /*Reading View*/
+.cm-s-obsidian .cm-highlight {} /*Editing View*/
+.cm-s-obsidian .cm-formatting-highlight {} /*Editing View highlight symbols/syntax*/
+
+/*Strikethrough*/
+.cm-strikethrough {} /*Editing View*/
+del {} /*Reading View*/
+
+/*--Headers/Headings--*/
+h1 {} /*Reading Mode*/
+h2 {} /*Reading Mode*/
+h3 {} /*Reading Mode*/
+h4 {} /*Reading Mode*/
+h5 {} /*Reading Mode*/
+h6 {} /*Reading Mode*/
+.cm-header-1 {} /*Source Mode*/
+.cm-header-2 {} /*Source Mode*/
+.cm-header-3 {} /*Source Mode*/
+.cm-header-4 {} /*Source Mode*/
+.cm-header-5 {} /*Source Mode*/
+.cm-header-6 {} /*Source Mode*/
+
+.cm-header {} /* applies to all source mode headings */
+
+
+
+/*--Horizontal Line--*/
+hr {} /*Reading Mode*/
+.hr.cm-line {} /*Source Mode*/
+.HyperMD-hr-bg {} /*Source Mode*/
+
+/*HR Line Text*/
+.cm-s-obsidian pre.HyperMD-hr {} /*Source Mode*/
+
+
+
+
+/*--Comments--*/
+/* html comments and obsidian style comments */
+.cm-comment {}
+
+
+
+
+/*--Code--*/
+code {}
+
+/*Inline Code*/
+.cm-s-obsidian span.cm-inline-code {} /*Source Mode*/
+.markdown-preview-view code {} /*Reading Mode*/
+
+/*Codeblock (no language specified) */
+.markdown-preview-view pre {} /*Reading Mode*/
+.cm-s-obsidian pre.HyperMD-codeblock {} /*Source Mode*/
+
+/*Codeblock: Language Specified: ```js*/
+.markdown-preview-view pre[class*=language-] {} /*Reading Mode*/
+.markdown-preview-view code[class*=language-] {} /*Reading Mode*/
+
+
+
+
+/*--Links--*/
+.cm-s-obsidian span.cm-hmd-internal-link {} /*Source Mode*/
+
+/*Wiki Links*/
+a.internal-link {} /*Reading Mode*/
+
+/*Markdown Links*/
+a.external-link {} /*Reading Mode*/
+
+/*Link to No Page*/
+a.internal-link.is-unresolved {} /*Reading Mode*/
+
+
+
+
+/*--Lists--*/
+.cm-s-obsidian .HyperMD-list-line {} /*Source Mode*/
+
+/*List Bullet/Number/Formatting*/
+li::marker {} /*Reading Mode*/
+span.cm-formatting-list-ul {} /*Source Mode*/
+span.cm-formatting-list-ol {} /*Source Mode*/
+
+/*Bullet Lists*/
+ul {} /*Reading Mode*/
+
+/*Bullet List Text*/
+ul li {} /*Reading Mode*/
+
+/*Bullet List Symbol*/
+ul li::marker {} /*Reading Mode*/
+
+/*Numbered Lists*/
+ol {} /*Reading Mode*/
+
+/*Numbered List Text*/
+ol li {} /*Reading Mode*/
+
+/*Numbered List Number*/
+ol li::marker {} /*Reading Mode*/
+
+/*Checkbox List*/
+li.task-list-item {} /*Reading Mode*/
+input[type=checkbox i] {} /*Reading Mode*/
+
+/*Checked Checkbox*/
+.markdown-preview-view .task-list-item-checkbox:checked {} /*Reading Mode*/
+input[type=checkbox]:checked {} /*Reading Mode*/
+
+
+
+
+
+/*--Blockquotes--*/
+.markdown-preview-view blockquote {}
+
+
+
+
+
+/*--Tables--*/
+table {} /*Reading Mode*/
+
+/*Table Headers*/
+table th {} /*Reading Mode*/
+
+/*Table Column*/
+table td {} /*Reading Mode*/
+
+/*Table Row*/
+table tr {} /*Reading Mode*/
+.cm-s-obsidian .HyperMD-table-row {} /*Source Mode*/
+
+
+
+
+/*--Tags--*/
+a.tag {} /*Reading Mode*/
+.cm-s-obsidian span.cm-hashtag {} /*Source Mode*/
+
+
+
+
+
+/*--Frontmatter/Metadata/Yaml--*/
+.frontmatter-container {} /*Reading Mode*/
+.CodeMirror-line .cm-s-obsidian .cm-hmd-frontmatter {} /*Source Mode*/
+
+/*Frontmatter Tag*/
+.frontmatter-container .frontmatter-alias {} /*Reading Mode*/
+
+
+
+
+
+/*--Embeds--*/
+.markdown-preview-view .markdown-embed {} /*Reading Mode*/
+.internal-embed.is-loaded:not(.image-embed) {} /*Reading Mode*/
+
+.markdown-source-view.mod-cm6 .cm-embed-block {} /*Live Preview Mode*/
+.markdown-source-view .markdown-embed:not(.mod-empty) {} /*Live Preview Mode*/
+
+/*File Embed*/
+.markdown-preview-view .file-embed {} /*Reading Mode*/
+.markdown-source-view .file-embed:not(.mod-empty) {} /*Live Preview Mode*/
+
+/*Empty/No Embed Found*/
+.markdown-source-view .markdown-embed.mod-empty {} /*Live Preview Mode*/
+.markdown-source-view .file-embed.mod-empty {} /*Live Preview Mode*/
+
+/*Embed Titles*/
+.markdown-embed-title {} /*Reading Mode*/
+.file-embed-title {} /*Reading Mode*/
+
+/*Embed Link*/
+.markdown-embed-link {}
+.file-embed-link {}
+
+
+/*--Footnotes--*/
+
+/*Footnote link in note*/
+.markdown-preview-view a.footnote-link {} /*Reading View*/
+
+/*Reference Number in text*/
+.cm-s-obsidian span.cm-footref {} /*Editing View*/
+
+/*Footnotes section at the bottom of the note*/
+.markdown-preview-view .footnotes {} /*Reading View*/
+
+/*Footnote back ref (arrow) at the bottom of the note*/
+.footnote-backref {} /*Reading View*/
+
+
+/*--Graph--*/
+
+.graph-view.color-fill {
+	color: var(--text-muted); /*color of nodes*/
+}
+.graph-view.color-fill-focused { /*color of focused node/note*/
+	color: #ffdd00;
+}
+.theme-dark .graph-view.color-fill-tag { /*dark mode tag color*/
+	color: #704214;
+}
+.theme-light .graph-view.color-fill-tag { /*light mode tag color*/
+	color: #E0D3AF;
+}
+.theme-dark .graph-view.color-fill-attachment { /*dark mode attachment color*/
+	color: #1a356b;
+}
+.theme-light .graph-view.color-fill-attachment { /*light mode attachment color*/
+	color: #83D4F4;
+}
+.graph-view.color-fill-unresolved { /*unresolved(not created yet) notes*/
+	color: var(--text-muted);
+	opacity: 0.4;
+}
+.graph-view.color-arrow { /*arrow color*/
+	color: var(--text-normal);
+	opacity: 0.5;
+}
+.graph-view.color-circle { /*focused node border color*/
+	color: var(--text-normal);
+}
+.graph-view.color-line { /*link color*/
+	color: var(--background-modifier-border);
+}
+.graph-view.color-text { /*text color*/
+	color: var(--text-normal);
+}
+.graph-view.color-fill-highlight { /*focused node color*/
+	color: var(--interactive-accent);
+}
+.graph-view.color-line-highlight { /*focused node connections*/
+	color: var(--interactive-accent);
+}
+
+.graph-controls {} /*Graph Menu*/
+
+/* Cursor */
+.cm-cursorLayer .cm-cursor {
+	/* border-left: ... */
+}
+
+/* animation of the blinking */
+.cm-cursorLayer {
+	/* deactivate built-in animation from CodeMirror */
+	animation-name: none !important; /* important needed */
+}
+
+@keyframes phase-blink {
+	15% { opacity: 1 }
+	50% { opacity: 0 }
+	85% { opacity: 1 }
+}
+
+.cm-cursorLayer .cm-cursor {
+	animation-duration: 2200ms;
+	animation-name: phase-blink;
+}
